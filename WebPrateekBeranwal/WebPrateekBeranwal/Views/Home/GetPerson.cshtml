@@ -1,0 +1,76 @@
+﻿@model Model.PersonModel
+
+@{
+    ViewBag.Title = "GetPerson";
+}
+
+<h2>GetPerson</h2>
+
+@using (@Html.BeginForm("GetPerson", "Home", new { id =Model.PersonId }, FormMethod.Get))
+{
+    <b>Search By:</b>   
+    @Html.TextBoxFor(model=>model.PersonId) <input type="submit" value="search" />
+}
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ForeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt>
+            @Html.DisplayName("WorkNumber")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number[0].Number)
+        </dd>
+        <dt>
+            @Html.DisplayName("MobileNumber")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number[1].Number)
+        </dd>
+        <dt>
+            @Html.DisplayName("HomeNumber")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number[2].Number)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Create Person", "CreatePerson")
+</p>
